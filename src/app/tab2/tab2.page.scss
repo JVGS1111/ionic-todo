@@ -1,0 +1,36 @@
+ion-header {
+
+    padding: 10px;
+    background: var(--ion-color-primary);
+
+    .header {
+        color: var(--ion-color-primary-contrast);
+        margin-top: 20px;
+
+        .title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+    }
+}
+
+.inputText {
+    width: 100%;
+    height: 40px;
+    padding-left: 10px;
+    border: 1px solid var(--ion-color-secondary-tint);
+}
+
+form {
+    margin-top: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.dateWrapper {
+
+    border: 1px solid var(--ion-color-secondary-tint);
+}

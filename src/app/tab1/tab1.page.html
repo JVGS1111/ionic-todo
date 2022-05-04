@@ -1,17 +1,33 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
+<ion-header color="primary">
+  <div class="header">
+    <span class="title">to.do</span>
+    <span class="nOfTasks" *ngIf="listaDeTarefas.length > 0">Você tem {{listaDeTarefas.length}} tarefas</span>
+  </div>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-list *ngFor="let tarefas of listaDeTarefas">
+    <ion-item-sliding *ngIf="listaDeTarefas.length > 0">
+      <ion-item lines="none">
+        <ion-checkbox [checked]="tarefas.complete" (click)="marcarTarefa(tarefas.id)" class="ion-margin"
+          color="success"></ion-checkbox>
+        <div>
+          <ion-label class="taskTitle" [ngClass]="{'finished': tarefas.complete == true}">{{tarefas.nome}}</ion-label>
+          <ion-label class="taskContent" *ngIf="tarefas.descricao" [ngClass]="{'finished2': tarefas.complete == true}">
+            {{tarefas.descricao}}</ion-label>
+        </div>
+        <ion-label slot="end" class="taskContent" [ngClass]="{'finished2': tarefas.complete == true}">
+          {{formatarData(tarefas.data)}}</ion-label>
+      </ion-item>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+      <ion-item-options side="end">
+        <ion-item-option color="danger">
+          <ion-icon slot="icon-only" name="trash" (click)="deletarTarefa(tarefas.id)"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  <ion-item lines="none" class="semTarefas" *ngIf="listaDeTarefas.length == 0">
+    <ion-label color="primary">Crie uma nova tarefa!</ion-label>
+  </ion-item>
 </ion-content>

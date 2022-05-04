@@ -1,17 +1,39 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
+<ion-header>
+  <div class="header">
+    <span class="title">Nova tarefa</span>
+  </div>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <form [formGroup]="formCadastroTarefa">
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+    <input formControlName="nome" class="inputText" type="text" placeholder="Tarefa" />
+    <ng-container *ngFor="let erro of mensagens.nome">
+      <span class="msg-erro"
+        *ngIf="formCadastroTarefa.get('nome').hasError(erro.tipo) && (formCadastroTarefa.get('nome').dirty || formCadastroTarefa.get('nome').touched)">
+        {{erro.mensagem}}
+      </span>
+    </ng-container>
+    <input formControlName="descricao" class="inputText" type="text" placeholder="Descrição" />
+    <ion-item class="dateWrapper" button="true" id="open-date-input" lines="none">
+      <ion-label>Data</ion-label>
+      <ion-text slot="end">{{dataFormatada}}</ion-text>
+      <ion-popover trigger="open-date-input" show-backdrop="false">
+        <ng-template>
+          <ion-datetime (ngModelChange)="formatarData($event)" formControlName="data" #popoverDatetime
+            presentation="date">
+          </ion-datetime>
+        </ng-template>
+      </ion-popover>
+
+    </ion-item>
+    <ng-container *ngFor="let erro of mensagens.data">
+      <span class="msg-erro"
+        *ngIf="formCadastroTarefa.get('data').hasError(erro.tipo) && (formCadastroTarefa.get('data').dirty || formCadastroTarefa.get('data').touched)">
+        {{erro.mensagem}}
+      </span>
+    </ng-container>
+    <ion-button expand="block" (click)="salvarTarefas()">Salvar</ion-button>
+
+  </form>
 </ion-content>

@@ -1,0 +1,49 @@
+ion-header {
+    height: 20vh;
+    padding: 10px;
+    background: var(--ion-color-primary);
+
+    .header {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        color: var(--ion-color-primary-contrast);
+        margin-top: 20px;
+
+        .title {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .nOfTasks {
+            font-size: 0.875rem;
+        }
+    }
+}
+
+
+.finished {
+    text-decoration: line-through;
+    color: var(--ion-color-success);
+}
+
+.finished2 {
+    color: var(--ion-color-success);
+}
+
+.semTarefas {
+    ion-label {
+        text-align: center;
+        font-size: large;
+        font-weight: bold;
+    }
+}
+
+.taskTitle {
+    font-size: 15px;
+}
+
+.taskContent {
+    font-size: 12px;
+}

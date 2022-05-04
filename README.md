@@ -1,7 +1,7 @@
 # ionic-todo
 Criei o projeto para aprender Ionic
 
-![image](https://user-images.githubusercontent.com/72321264/166825712-ceb892f5-68d3-4eab-b8ed-e5414a898f0b.png)
+![ionic](https://user-images.githubusercontent.com/72321264/166826099-944b6abd-d37d-4f84-9408-811c481dd0ea.png)
 
 
 ionic serve -l e seja feliz
